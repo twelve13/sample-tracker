@@ -16,12 +16,12 @@
 	<p>Mito</p>
 	<p>Analyst</p>
 </div>
-<div ng-repeat="sample in vm.samples" ng-class="{'priority' : (sample.priority ==true)}">
+<div ng-repeat="sample in vm.samples" ng-class="{'priority' : (sample.priority == true)}">
 	<div class="sample-entry" >
 		<div>{{sample.name}}</div>
 		<div>{{sample.notes}}</div>
-		<div>{{sample.strs}}</div>
-		<div>{{sample.mito}}</div>
+		<div><div ng-class="{'strs' : (sample.strs != true)}">STRs</div></div>
+		<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 		<div>{{sample.analyst}}</div>
 		<button>Edit</button>
 		<button>Cleaned</button>

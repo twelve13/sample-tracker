@@ -27,3 +27,7 @@ body {
 .priority {
 	color: red;
 }
+
+.strs, .mito {
+	display: none;
+}
