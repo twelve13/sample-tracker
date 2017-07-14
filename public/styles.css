@@ -1,5 +1,18 @@
+body {
+	background-color: #a3dbe6;
+}
+
 .sample-entry, .headings {
 	display: flex;
+}
+
+.sample-entry {
+	background-color: white;
+	border: solid black 2px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin:  1% 0;
+	padding: 1%;
 }
 
 .sample-entry div, .headings p{
@@ -9,4 +22,8 @@
 .headings {
 	font-size: 24px;
 	font-weight: 800;
+}
+
+.priority {
+	color: red;
 }
