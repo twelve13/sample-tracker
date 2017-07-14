@@ -1,16 +1,21 @@
 const express = require("express");
 const app = express();
-//const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const models = require("./db/schema");
 const path = require("path");
 
-//app.use(bodyParser.json({extended: true}));
+app.use(bodyParser.json({extended: true}));
 app.use("/assets", express.static("public"));
 
 app.get("/api/samples", (req, res) => {
-
 	models.Sample.find({}).then(function(samples){
 		res.json(samples)
+	});
+});
+
+app.post("/api/samples", (req, res) => {
+	models.Sample.create(req.body).then(function(sample) {
+		res.json(sample);
 	});
 });
 

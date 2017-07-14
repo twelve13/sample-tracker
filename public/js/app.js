@@ -38,6 +38,11 @@ angular
 	}
 
 	function sampleControllerFunction($state, SampleFactory){
-		console.log("inside the sampleControllerFunction!")
-		this.samples = SampleFactory.query();
+		this.samples = SampleFactory.query()
+		this.newSample = new SampleFactory()
+		this.create = function() {
+			this.newSample.$save().then(function(sample){
+				$state.reload()
+			})
+		}
 	}

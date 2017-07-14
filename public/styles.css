@@ -1,0 +1,12 @@
+.sample-entry, .headings {
+	display: flex;
+}
+
+.sample-entry div, .headings p{
+	width: 15%;
+}
+
+.headings {
+	font-size: 24px;
+	font-weight: 800;
+}
