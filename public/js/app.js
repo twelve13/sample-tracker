@@ -33,7 +33,7 @@ angular
 
 	function SampleFactoryFunction($resource) {
 		return $resource("api/samples/:name", {}, {
-
+			update: {method: "PUT"}
 		})
 	}
 
@@ -44,5 +44,10 @@ angular
 			this.newSample.$save().then(function(sample){
 				$state.reload()
 			})
+		}
+		this.update = function(sample){
+			console.log(`trying to update ${sample.name}`);
+			sample.name = this[sample.name].updateMe.name
+			sample.$update({name: sample.name})
 		}
 	}

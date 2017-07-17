@@ -18,6 +18,7 @@
 </div>
 
 <div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
+
 <div ng-repeat="sample in vm.samples | filter: vm.search" ng-class="{'priority' : (sample.priority == true)}">
 	<div class="sample-entry" >
 		<div>{{sample.name}}</div>
@@ -25,7 +26,7 @@
 		<div><div ng-class="{'strs' : (sample.strs != true)}">STRs</div></div>
 		<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 		<div>{{sample.analyst}}</div>
-		<button>Edit</button>
+		<button ng-click="show = !show">Edit</button>
 		<button>Cleaned</button>
 		<button>Sampled</button>
 		<!-- <div>Cleaned: {{sample.cleaned}}</div>
@@ -34,5 +35,10 @@
 		<div>Sampled on: {{sample.sampled_date}}</div>
 		<div>Extraction: {{sample.extraction}}</div> -->
 	</div>
+	<form ng-show="show" ng-submit="vm.update(sample)">
+	<p>Sample Name</p><input type="string" ng-model="vm[sample.name].updateMe.name">
+	<button type="submit" ng-click="show = !show">submit</button>
+</form>
 </div>
+
 

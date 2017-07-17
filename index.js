@@ -19,6 +19,12 @@ app.post("/api/samples", (req, res) => {
 	});
 });
 
+app.put("/api/samples/:name", (req, res) => {
+	models.Sample.findOneAndUpdate({name: req.params.name}, req.body, {new: true}).then(function(sample) {
+		res.json(sample);
+	});
+});
+
 //this is what links the app to the index.html
 app.get("/*", (req, res) => {
 	res.sendFile(path.join(__dirname + "/index.html"));
