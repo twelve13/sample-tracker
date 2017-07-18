@@ -57,14 +57,20 @@ angular
 				$state.reload()
 			})
 		}
-		// this.update = function(sample){
-		// 	console.log(`trying to update ${sample.name}`);
-		// 	sample.name = this[sample.name].updateMe.name
-		// 	sample.$update({name: sample.name})
-		// }
 	}
 
 	function infoControllerFunction($state, $stateParams, SampleFactory){
 		this.sample = SampleFactory.get({name: $stateParams.name});
-		console.log(this.sample)
+		
+		this.update = function(){
+			this.sample.$update({name: $stateParams.name}).then(function(){
+				$state.go("samples")
+			})
+		}
+
+		this.destroy = function(){
+			this.sample.$delete({name: $stateParams.name}).then(function(){
+				$state.go("samples")
+			})
+		}
 	}
