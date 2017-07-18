@@ -31,3 +31,42 @@ body {
 .strs, .mito {
 	display: none;
 }
+
+.update-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.update-sample {
+	display: flex;
+	width: 100%;
+}
+
+.update-sample div {
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 20%;
+}
+
+.update-sample div p {
+	font-size: 24px;
+	font-weight: 800;
+	width: 100%;
+}
+
+.update-sample button {
+	align-self: flex-end;
+	height: 25px;
+}
+
+.delete-sample {
+	justify-content: flex-end;
+	display: flex;
+	width: 100%;
+}
+
+.delete-sample button {
+	height: 25px;
+}

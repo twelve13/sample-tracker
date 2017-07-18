@@ -1,16 +1,18 @@
 <div><a ui-sref="samples">Back</a></div>
 
-<form ng-submit="vm.update()">
-	<p>Sample Name</p><input type="text" ng-model="vm.sample.name" value="vm.sample.name">
-	<p>Notes</p><input type="text" ng-model="vm.sample.notes" value="vm.sample.notes">
-	<p>STRs</p><input type="checkbox" ng-model="vm.sample.strs" value="vm.sample.strs">
-	<p>Mito</p><input type="checkbox" ng-model="vm.sample.mito" value="vm.sample.mito">
-	<p>Priority</p><input type="checkbox" ng-model="vm.sample.priority" value="vm.sample.priority">
-	<p>Analyst</p><input type="text" ng-model="vm.sample.analyst" value="vm.sample.analyst">
-	<button type="submit">submit</button>
+<div class="update-wrapper">
+
+<div class="delete-sample"><button ng-click="vm.destroy()">Delete Sample</button></div>
+
+<form class="update-sample" ng-submit="vm.update()">
+	<div><p>Sample</p><input type="text" ng-model="vm.sample.name" value="vm.sample.name"></div>
+	<div><p>Notes</p><input type="text" ng-model="vm.sample.notes" value="vm.sample.notes"></div>
+	<div><p>STRs</p><input type="checkbox" ng-model="vm.sample.strs" value="vm.sample.strs"></div>
+	<div><p>Mito</p><input type="checkbox" ng-model="vm.sample.mito" value="vm.sample.mito"></div>
+	<div><p>Priority</p><input type="checkbox" ng-model="vm.sample.priority" value="vm.sample.priority"></div>
+	<div><p>Analyst</p><input type="text" ng-model="vm.sample.analyst" value="vm.sample.analyst"></div>
+	<div><button type="submit">Update</button></div>
 </form>
 
-<button ng-click="vm.destroy()">Delete Sample</button>
-
-
+</div>
 
