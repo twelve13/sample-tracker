@@ -13,6 +13,12 @@ app.get("/api/samples", (req, res) => {
 	});
 });
 
+app.get("/api/samples/:name", (req, res) => {
+	models.Sample.findOne(req.params).then(function(sample){
+		res.json(sample)
+	});
+});
+
 app.post("/api/samples", (req, res) => {
 	models.Sample.create(req.body).then(function(sample) {
 		res.json(sample);
@@ -20,7 +26,7 @@ app.post("/api/samples", (req, res) => {
 });
 
 app.put("/api/samples/:name", (req, res) => {
-	models.Sample.findOneAndUpdate({name: req.params.name}, req.body, {new: true}).then(function(sample) {
+	models.Sample.findOneAndUpdate({}, req.body, {new: true}).then(function(sample) {
 		res.json(sample);
 	});
 });
