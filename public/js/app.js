@@ -86,12 +86,23 @@ angular
 
 	function sampleControllerFunction($state, $stateParams, ExtractionFactory, SampleFactory){
 		this.extraction = ExtractionFactory.get({name: $stateParams.name});
+		console.log(this.extraction["name"])
+		
 		this.newSample = new SampleFactory()
+			
 		this.create = function() {
 			this.newSample.$save({name: this.extraction.name}).then(function(){
 				$state.reload()
 			})
 		}
+
+		this.update = function(index){
+			var sample_to_update = index
+			console.log(sample_to_update)
+			console.log(sample_to_update._id)
+			console.log(this.extraction.name)
+ 			SampleFactory.update({name: this.extraction.name, id: sample_to_update._id})
+ 		}
 	}
 
 	function infoControllerFunction($state, $stateParams, SampleFactory){

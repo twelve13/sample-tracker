@@ -27,8 +27,12 @@
 		<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 		<div>{{sample.analyst}}</div>
 		<div>{{sample.extraction}}</div>
-		<div class="update-button"><div><a ui-sref="sample-info({name: sample.name})">Update</a></div></div>
+		<button ng-click="show = !show">Edit</button>
 	</div>
+	<form ng-show="show" ng-submit="vm.update(sample)">
+ 		<p>Sample Name</p><input type="string" ng-model="vm[sample.name].updateMe.name">
+ 		<button type="submit" ng-click="show = !show">submit</button>
+ 	</form>
 </div>
 
 

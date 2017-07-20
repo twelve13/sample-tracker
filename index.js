@@ -19,11 +19,11 @@ app.get("/api/extractions/:name", (req, res) => {
 	});
 });
 
-app.get("/api/samples", (req, res) => {
-	models.Sample.find({}).then(function(samples){
-		res.json(samples)
-	});
-});
+// app.get("/api/samples", (req, res) => {
+// 	models.Sample.find({}).then(function(samples){
+// 		res.json(samples)
+// 	});
+// });
 
 //new sample
 app.post("/api/extractions/:name/samples", (req, res) => {
@@ -37,15 +37,29 @@ app.post("/api/extractions/:name/samples", (req, res) => {
 	});
 });
 
-app.get("/api/samples/:name", (req, res) => {
-	models.Sample.findOne(req.params).then(function(sample){
-		res.json(sample)
+app.get("/api/extractions/:name/samples/:id", (req, res) => {
+	models.Extraction.findOne({ name: req.params.name }).then(function(extraction) {
+ 		let sample = extraction.samples.find(function(sample){
+            return sample.id === req.params.id
+ 		});
+ 		res.json(sample)
 	});
-});
+ });
 
-app.put("/api/samples/:name", (req, res) => {
-	models.Sample.findOneAndUpdate({name: req.params.name}, req.body, {new: true}).then(function(sample) {
-		res.json(sample);
+//edit sample
+app.put("/api/extractions/:name/samples/:id", (req, res) => {
+	models.Extraction.findOne({name: req.params.name}, req.body, {new: true}).then(function(extraction){
+		let sample = extraction.samples.find((sample) =>{
+			return sample.id == req.params.id
+		});
+		for(let i=0; i<extraction.samples.length; i++){
+			if(extraction.samples[i].id == sample.id){
+				extraction.samples[i].name = "cheeseball";
+			}
+		}
+		extraction.save().then(function(){
+			res.json(extraction);
+		})
 	});
 });
 
