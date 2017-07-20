@@ -95,24 +95,17 @@ angular
 				$state.reload()
 			})
 		}
-
-		this.update = function(index){
-			var sample_to_update = index
-			console.log(sample_to_update)
-			console.log(sample_to_update._id)
-			console.log(this.extraction.name)
- 			SampleFactory.update({name: this.extraction.name, id: sample_to_update._id})
- 		}
 	}
 
 	function infoControllerFunction($state, $stateParams, SampleFactory){
-		this.sample = SampleFactory.get({name: $stateParams.name});
+		this.sample = SampleFactory.get({name: $stateParams.name, id: $stateParams.id});
 		
 		this.update = function(){
-			this.sample.$update({name: $stateParams.name}).then(function(){
-				$state.go("samples")
+			this.sample.$update({name: $stateParams.name, id: $stateParams.id}).then(function(){
+				$state.go("extractions")
 			})
-		}
+			}
+		
 
 		this.destroy = function(){
 			this.sample.$delete({name: $stateParams.name}).then(function(){

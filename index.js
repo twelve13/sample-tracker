@@ -48,16 +48,12 @@ app.get("/api/extractions/:name/samples/:id", (req, res) => {
 
 //edit sample
 app.put("/api/extractions/:name/samples/:id", (req, res) => {
-	models.Extraction.findOne({name: req.params.name}, req.body, {new: true}).then(function(extraction){
+	models.Extraction.findOne({name: req.params.name}).then(function(extraction){
 		let sample = extraction.samples.find((sample) =>{
 			return sample.id == req.params.id
 		});
-		for(let i=0; i<extraction.samples.length; i++){
-			if(extraction.samples[i].id == sample.id){
-				extraction.samples[i].name = "cheeseball";
-			}
-		}
-		extraction.save().then(function(){
+		sample.name = req.body.name;
+		extraction.save().then(function(extraction){
 			res.json(extraction);
 		})
 	});
