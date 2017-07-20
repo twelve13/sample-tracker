@@ -51,7 +51,8 @@ angular
 				url: "/extractions/:name",
 				templateUrl: "/assets/js/ng-views/samples.html",
 				controller: "SampleController",
-				controllerAs: "vm"
+				controllerAs: "vm",
+				params: {obj: null}
 			})
 			.state("sample-info", {
 				url: "/extractions/:name/samples/:id",
@@ -86,7 +87,6 @@ angular
 
 	function sampleControllerFunction($state, $stateParams, ExtractionFactory, SampleFactory){
 		this.extraction = ExtractionFactory.get({name: $stateParams.name});
-		console.log(this.extraction["name"])
 		
 		this.newSample = new SampleFactory()
 			
@@ -102,7 +102,7 @@ angular
 		
 		this.update = function(){
 			this.sample.$update({name: $stateParams.name, id: $stateParams.id}).then(function(){
-				$state.go("extractions")
+				$state.go("samples", {"name": "Unassigned"})
 			})
 			}
 		

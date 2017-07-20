@@ -19,12 +19,6 @@ app.get("/api/extractions/:name", (req, res) => {
 	});
 });
 
-// app.get("/api/samples", (req, res) => {
-// 	models.Sample.find({}).then(function(samples){
-// 		res.json(samples)
-// 	});
-// });
-
 //new sample
 app.post("/api/extractions/:name/samples", (req, res) => {
 	models.Extraction.findOne({name: req.params.name}).then(function(extraction) {
@@ -53,6 +47,13 @@ app.put("/api/extractions/:name/samples/:id", (req, res) => {
 			return sample.id == req.params.id
 		});
 		sample.name = req.body.name;
+		sample.notes = req.body.notes;
+		sample.analyst = req.body.analyst;
+		sample.strs = req.body.strs;
+		sample.mito = req.body.mito;
+		sample.priority = req.body.priority;
+		sample.cleaned = req.body.cleaned;
+		sample.sampled = req.body.sampled;
 		extraction.save().then(function(extraction){
 			res.json(extraction);
 		})
