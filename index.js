@@ -38,6 +38,12 @@ app.delete("/api/samples/:name", (req, res) => {
 	});
 });
 
+app.get("/api/extractions", (req, res) => {
+	models.Extraction.find({}).then(function(extractions){
+		res.json(extractions)
+	});
+});
+
 //this is what links the app to the index.html
 app.get("/*", (req, res) => {
 	res.sendFile(path.join(__dirname + "/index.html"));
