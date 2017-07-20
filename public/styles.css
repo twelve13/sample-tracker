@@ -70,3 +70,7 @@ body {
 .delete-sample button {
 	height: 25px;
 }
+
+.cleaned {
+	background-color: green;
+}
