@@ -7,16 +7,33 @@ const path = require("path");
 app.use(bodyParser.json({extended: true}));
 app.use("/assets", express.static("public"));
 
+app.get("/api/extractions", (req, res) => {
+	models.Extraction.find({}).then(function(extractions){
+		res.json(extractions)
+	});
+});
+
+app.get("/api/extractions/:name", (req, res) => {
+	models.Extraction.findOne(req.params).then(function(extraction){
+		res.json(extraction)
+	});
+});
+
 app.get("/api/samples", (req, res) => {
 	models.Sample.find({}).then(function(samples){
 		res.json(samples)
 	});
 });
 
-
-app.post("/api/samples", (req, res) => {
-	models.Sample.create(req.body).then(function(sample) {
-		res.json(sample);
+//new sample
+app.post("/api/extractions/:name/samples", (req, res) => {
+	models.Extraction.findOne({name: req.params.name}).then(function(extraction) {
+		models.Sample.create(req.body).then(function(sample) {
+			extraction.samples.push(sample)
+			extraction.save().then(function(extraction){
+				res.json(extraction);
+			});
+		});
 	});
 });
 
@@ -38,11 +55,7 @@ app.delete("/api/samples/:name", (req, res) => {
 	});
 });
 
-app.get("/api/extractions", (req, res) => {
-	models.Extraction.find({}).then(function(extractions){
-		res.json(extractions)
-	});
-});
+
 
 //this is what links the app to the index.html
 app.get("/*", (req, res) => {

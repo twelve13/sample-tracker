@@ -11,16 +11,23 @@ angular
 		"$urlRouterProvider",
 		RouterFunction
 	])
-	.factory("SampleFactory", [
-		"$resource",
-		SampleFactoryFunction
-		])
 	.factory("ExtractionFactory", [
 		"$resource",
 		ExtractionFactoryFunction
 		])
+	.factory("SampleFactory", [
+		"$resource",
+		SampleFactoryFunction
+		])
+	.controller("ExtractionController", [
+		"$state",
+		"ExtractionFactory",
+		extractionControllerFunction
+		])
 	.controller("SampleController", [
 		"$state",
+		"$stateParams",
+		"ExtractionFactory",
 		"SampleFactory",
 		sampleControllerFunction
 		])
@@ -30,38 +37,28 @@ angular
 		"SampleFactory",
 		infoControllerFunction
 		])
-	.controller("ExtractionController", [
-		"$state",
-		"ExtractionFactory",
-		extractionControllerFunction
-		])
+	
 
 	function RouterFunction($stateProvider){
 		$stateProvider
-			.state("samples", {
-				url: "/samples",
-				templateUrl: "/assets/js/ng-views/samples.html",
-				controller: "SampleController",
-				controllerAs: "vm"
-			})
-			.state("sample-info", {
-				url: "/samples/:name",
-				templateUrl: "/assets/js/ng-views/sample-info.html",
-				controller: "InfoController",
-				controllerAs: "vm"
-			})
 			.state("extractions", {
 				url: "/extractions",
 				templateUrl: "/assets/js/ng-views/extractions.html",
 				controller: "ExtractionController",
 				controllerAs: "vm"
 			})
-	}
-
-	function SampleFactoryFunction($resource) {
-		return $resource("api/samples/:name", {}, {
-			update: {method: "PUT"}
-		})
+			.state("samples", {
+				url: "/extractions/:name",
+				templateUrl: "/assets/js/ng-views/samples.html",
+				controller: "SampleController",
+				controllerAs: "vm"
+			})
+			.state("sample-info", {
+				url: "/extractions/:name/samples/:id",
+				templateUrl: "/assets/js/ng-views/sample-info.html",
+				controller: "InfoController",
+				controllerAs: "vm"
+			})	
 	}
 
 	function ExtractionFactoryFunction($resource) {
@@ -70,11 +67,28 @@ angular
 		})
 	}
 
-	function sampleControllerFunction($state, SampleFactory){
-		this.samples = SampleFactory.query()
+	function SampleFactoryFunction($resource) {
+		return $resource("api/extractions/:name/samples/:id", {}, {
+			update: {method: "PUT"}
+		})
+	}
+
+
+	function extractionControllerFunction($state, ExtractionFactory){
+		this.extractions = ExtractionFactory.query()
+		// this.newSample = new SampleFactory()
+		// this.create = function() {
+		// 	this.newSample.$save().then(function(sample){
+		// 		$state.reload()
+		// 	})
+		// }
+	}
+
+	function sampleControllerFunction($state, $stateParams, ExtractionFactory, SampleFactory){
+		this.extraction = ExtractionFactory.get({name: $stateParams.name});
 		this.newSample = new SampleFactory()
 		this.create = function() {
-			this.newSample.$save().then(function(sample){
+			this.newSample.$save({name: this.extraction.name}).then(function(){
 				$state.reload()
 			})
 		}
@@ -94,14 +108,4 @@ angular
 				$state.go("samples")
 			})
 		}
-	}
-
-	function extractionControllerFunction($state, ExtractionFactory){
-		this.extractions = ExtractionFactory.query()
-		// this.newSample = new SampleFactory()
-		// this.create = function() {
-		// 	this.newSample.$save().then(function(sample){
-		// 		$state.reload()
-		// 	})
-		// }
 	}

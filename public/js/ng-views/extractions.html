@@ -1,5 +1,12 @@
 <div ng-repeat="extraction in vm.extractions">
-	<div>
-		<div>{{extraction.name}}</div>
+	<div class="extraction-entry">
+		<div><a ui-sref="samples({name: extraction.name})">{{extraction.name}}</a></div>
+		<div>{{extraction.goal_date}}</div>
+		<div>{{extraction.analyst}}</div>
+		<div>{{extraction.bbp_added}}</div>
+		<div>{{extraction.extracted}}</div>
+		<div class="sample-block" ng-repeat="sample in extraction.samples">
+			<div>{{sample.name}}</div>
+		</div>
 	</div>
 </div>

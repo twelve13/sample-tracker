@@ -13,6 +13,7 @@ body {
 	box-sizing: border-box;
 	margin:  1% 0;
 	padding: 1%;
+	flex-wrap: wrap;
 }
 
 .sample-entry div, .headings p{
@@ -85,4 +86,26 @@ body {
 
 .sampled {
 	background-color: limegreen;
+}
+
+.extraction-entry {
+	display: flex;
+	background-color: white;
+	border: solid black 2px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin:  1% 0;
+	padding: 1%;
+	flex-wrap: wrap;
+}
+
+.extraction-entry div{
+	width: 20%;
+}
+.sample-block {
+	background-color: red;
+}
+
+.sample-block div {
+	width: 100%;
 }
