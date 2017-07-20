@@ -20,16 +20,14 @@
 <div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
 
 <div ng-repeat="sample in vm.samples | filter: vm.search" ng-class="{'priority' : (sample.priority == true)}">
-	<div class="sample-entry" ng-class="{'cleaned' : (sample.cleaned == true)}">
+	<div class="sample-entry" ng-class="{'cleaned' : (sample.cleaned == true), 'sampled' : (sample.sampled == true)}">
 		<div>{{sample.name}}</div>
 		<div>{{sample.notes}}</div>
 		<div><div ng-class="{'strs' : (sample.strs != true)}">STRs</div></div>
 		<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 		<div>{{sample.analyst}}</div>
-		<div>{{sample.cleaned}}</div>
-		<button><a ui-sref="sample-info({name: sample.name})">Edit</a></button>
-		<button>Cleaned</button>
-		<button>Sampled</button>
+		<div>{{sample.sampled}}</div>
+		<div class="update-button"><div><a ui-sref="sample-info({name: sample.name})">Update</a></div></div>
 	</div>
 </div>
 

@@ -1,5 +1,5 @@
 body {
-	background-color: #a3dbe6;
+	background-color: gray;
 }
 
 .sample-entry, .headings {
@@ -30,6 +30,14 @@ body {
 
 .strs, .mito {
 	display: none;
+}
+
+.update-button div {
+	background-color: silver;
+	border-radius: 10px;
+	height: 25px;
+	text-align: center;
+	width: 50%;
 }
 
 .update-wrapper {
@@ -72,5 +80,9 @@ body {
 }
 
 .cleaned {
-	background-color: green;
+	background-color: aqua;
+}
+
+.sampled {
+	background-color: limegreen;
 }
