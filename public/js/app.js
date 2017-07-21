@@ -108,8 +108,8 @@ angular
 		
 
 		this.destroy = function(){
-			this.sample.$delete({name: $stateParams.name}).then(function(){
-				$state.go("samples")
+			this.sample.$delete({name: $stateParams.name, id: $stateParams.id}).then(function(){
+				$state.go("samples", {"name": "Unassigned"})
 			})
 		}
 	}

@@ -60,9 +60,20 @@ app.put("/api/extractions/:name/samples/:id", (req, res) => {
 	});
 });
 
-app.delete("/api/samples/:name", (req, res) => {
-	models.Sample.findOneAndRemove({name: req.params.name}).then(function(){
-		res.json({success: true})
+//delete sample
+app.delete("/api/extractions/:name/samples/:id", (req, res) => {
+	models.Extraction.findOne({name: req.params.name}).then(function(extraction){
+		let sample = extraction.samples.find((sample) =>{
+			return sample.id == req.params.id
+		});
+	for(let i=0; i<extraction.samples.length; i++){
+		if(extraction.samples[i].id == sample.id){
+			extraction.samples.splice(i, 1)
+		}
+	}
+		extraction.save().then(function(){
+			res.json({success: true});
+		});
 	});
 });
 
