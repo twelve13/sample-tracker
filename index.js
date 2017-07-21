@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const models = require("./db/schema");
 const path = require("path");
 
+
 app.use(bodyParser.json({extended: true}));
 app.use("/assets", express.static("public"));
 
@@ -68,9 +69,8 @@ app.delete("/api/extractions/:name/samples/:id", (req, res) => {
 		});
 	for(let i=0; i<extraction.samples.length; i++){
 		if(extraction.samples[i].id == sample.id){
-			extraction.samples.splice(i, 1)
 		}
-	}
+	}	
 		extraction.save().then(function(){
 			res.json({success: true});
 		});
