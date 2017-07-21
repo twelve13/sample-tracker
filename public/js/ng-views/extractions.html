@@ -1,5 +1,13 @@
 <div ng-repeat="extraction in vm.extractions">
-	<div>
+	<div class="sample-entry">
 		<div>{{extraction.name}}</div>
+		<div>{{extraction.goal_date}}</div>
+		<div>{{extraction.analyst}}</div>
+		<div>{{extraction.bbp_added}}</div>
+		<div>{{extraction.extracted}}</div>
+		<div>{{extraction._id}}</div>
+		<div>{{extraction.sample[0]}}</div>
+
+		<div class="update-button"><div><a ui-sref="extraction-info({name: extraction.name})">Update</a></div></div>
 	</div>
 </div>

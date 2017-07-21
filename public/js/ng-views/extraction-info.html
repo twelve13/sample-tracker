@@ -1,0 +1,11 @@
+<form class="update-sample" ng-submit="vm.update()">
+
+	<div><p>Extraction</p><input type="text" ng-model="vm.extraction.name" value="vm.extraction.name"></div>
+	<div><p>Goal Date</p><input type="text" ng-model="vm.extraction.goal_date" value="vm.extraction.goal_date"></div>
+	<div><p>Analyst</p><input type="text" ng-model="vm.extraction.analyst" value="vm.extraction.analyst"></div>
+	<div><p>BBP Added</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
+	<div><p>Extracted</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
+
+	<div><p>Sample to Add</p><input type="text" ng-model="vm.extraction.samples"></div>
+	<div><button type="submit">Update</button></div>
+</form>

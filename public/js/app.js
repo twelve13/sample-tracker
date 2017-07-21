@@ -35,6 +35,12 @@ angular
 		"ExtractionFactory",
 		extractionControllerFunction
 		])
+	.controller("ExtractionInfoController", [
+		"$state",
+		"$stateParams",
+		"ExtractionFactory",
+		extractionInfoControllerFunction
+		])
 
 	function RouterFunction($stateProvider){
 		$stateProvider
@@ -54,6 +60,12 @@ angular
 				url: "/extractions",
 				templateUrl: "/assets/js/ng-views/extractions.html",
 				controller: "ExtractionController",
+				controllerAs: "vm"
+			})
+			.state("extraction-info", {
+				url: "/extractions/:name",
+				templateUrl: "/assets/js/ng-views/extraction-info.html",
+				controller: "ExtractionInfoController",
 				controllerAs: "vm"
 			})
 	}
@@ -102,6 +114,24 @@ angular
 		// this.create = function() {
 		// 	this.newSample.$save().then(function(sample){
 		// 		$state.reload()
+		// 	})
+		// }
+	}
+
+	function extractionInfoControllerFunction($state, $stateParams, ExtractionFactory){
+		this.extraction = ExtractionFactory.get({name: $stateParams.name});
+		console.log(this.extraction)
+		this.message = this.extraction
+		
+		this.update = function(){
+			this.extraction.$update({name: $stateParams.name}).then(function(){
+				$state.go("extractions")
+			})
+		}
+
+		// this.destroy = function(){
+		// 	this.sample.$delete({name: $stateParams.name}).then(function(){
+		// 		$state.go("samples")
 		// 	})
 		// }
 	}

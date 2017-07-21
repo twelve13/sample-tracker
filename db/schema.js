@@ -16,7 +16,8 @@ const ExtractionSchema = new mongoose.Schema({
 	bbp_added: Boolean,
 	bbp_date: {type: Date, default: Date.now},
 	extracted: Boolean,
-	extracted_date: {type: Date, default: Date.now}
+	extracted_date: {type: Date, default: Date.now},
+	samples: [{type: mongoose.Schema.ObjectId, ref: "Sample"}]
 });
 
 const SampleSchema = new mongoose.Schema({
@@ -30,7 +31,7 @@ const SampleSchema = new mongoose.Schema({
 	cleaned_date: {type: Date, default: Date.now},
 	sampled: Boolean,
 	sampled_date: {type: Date, default: Date.now},
-	extraction: {type: mongoose.Schema.ObjectId, ref: "Extraction"}
+	extraction: {type: Number, ref: "Extraction"}
 });
 
 var Extraction = mongoose.model("Extraction", ExtractionSchema);
