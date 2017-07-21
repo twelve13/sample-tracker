@@ -52,7 +52,7 @@ app.get("/api/extractions", (req, res) => {
 
 //show particular extraction
 app.get("/api/extractions/:name", (req, res) => {
-	models.Extraction.findOne(req.params).then(function(extraction){
+	models.Extraction.findOne(req.params).populate("samples").then(function(extraction){
 		res.json(extraction)
 	});
 });
@@ -63,6 +63,7 @@ app.put("/api/extractions/:name", (req, res) => {
 		extraction.name = req.body.name;
 		extraction.goal_date = req.body.goal_date;
 		extraction.analyst = req.body.analyst;
+		extraction.samples = [ObjectId("59724ac0f06cf1d4f475")]
 		extraction.save().then(function(extraction){
 		res.json(extraction);
 		});
