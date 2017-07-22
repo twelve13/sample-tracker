@@ -104,7 +104,7 @@ angular
 			this.sample.$update({name: $stateParams.name, id: $stateParams.id}).then(function(){
 				$state.go("samples", {"name": "Unassigned"})
 			})
-			}
+		}
 		
 
 		this.destroy = function(){

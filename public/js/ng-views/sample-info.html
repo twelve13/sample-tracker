@@ -14,9 +14,17 @@
 	<div><p>Cleaned</p><input type="checkbox" ng-model="vm.sample.cleaned" value="vm.sample.cleaned"></div>
 	<div><p>Sampled</p><input type="checkbox" ng-model="vm.sample.sampled" value="vm.sample.sampled"></div>
 
+	<div><button type="submit">Update</button></div>
+</form>
+
+
+<form class="update-sample" ng-submit="vm.updateext()">
 	<div><p>Extraction</p><input type="text" ng-model="vm.sample.extraction" value="vm.sample.extraction"></div>
 	<div><button type="submit">Update</button></div>
 </form>
+
+
+
 
 </div>
 

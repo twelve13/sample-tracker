@@ -8,12 +8,14 @@ const path = require("path");
 app.use(bodyParser.json({extended: true}));
 app.use("/assets", express.static("public"));
 
+//list all extractions
 app.get("/api/extractions", (req, res) => {
 	models.Extraction.find({}).then(function(extractions){
 		res.json(extractions)
 	});
 });
 
+//show one extraction
 app.get("/api/extractions/:name", (req, res) => {
 	models.Extraction.findOne(req.params).then(function(extraction){
 		res.json(extraction)
@@ -32,6 +34,7 @@ app.post("/api/extractions/:name/samples", (req, res) => {
 	});
 });
 
+//show a sample
 app.get("/api/extractions/:name/samples/:id", (req, res) => {
 	models.Extraction.findOne({ name: req.params.name }).then(function(extraction) {
  		let sample = extraction.samples.find(function(sample){
@@ -63,19 +66,20 @@ app.put("/api/extractions/:name/samples/:id", (req, res) => {
 
 //delete sample
 app.delete("/api/extractions/:name/samples/:id", (req, res) => {
-	models.Extraction.findOne({name: req.params.name}).then(function(extraction){
-		let sample = extraction.samples.find((sample) =>{
-			return sample.id == req.params.id
-		});
-	for(let i=0; i<extraction.samples.length; i++){
-		if(extraction.samples[i].id == sample.id){
-		}
-	}	
-		extraction.save().then(function(){
-			res.json({success: true});
-		});
-	});
-});
+ 	models.Extraction.findOne({name: req.params.name}).then(function(extraction){
+ 		let sample = extraction.samples.find((sample) =>{
+ 			return sample.id == req.params.id
+ 		});
+ 	for(let i=0; i<extraction.samples.length; i++){
+ 		if(extraction.samples[i].id == sample.id){
+ 			extraction.samples.splice(i, 1)
+ 		}
+ 	}
+ 		extraction.save().then(function(){
+ 			res.json({success: true});
+ 		});
+  	});
+  });
 
 
 
