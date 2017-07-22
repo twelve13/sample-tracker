@@ -63,7 +63,7 @@ app.put("/api/extractions/:name", (req, res) => {
 		extraction.name = req.body.name;
 		extraction.goal_date = req.body.goal_date;
 		extraction.analyst = req.body.analyst;
-		extraction.samples = [ObjectId("59724ac0f06cf1d4f475")]
+		extraction.samples.push([ObjectId("597291d60b3312ee3f1299a8")])
 		extraction.save().then(function(extraction){
 		res.json(extraction);
 		});
