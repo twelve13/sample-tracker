@@ -29,7 +29,7 @@ body {
 	color: red;
 }
 
-.strs, .mito {
+.strs, .mito, .cleanedDate, .sampledDate {
 	display: none;
 }
 

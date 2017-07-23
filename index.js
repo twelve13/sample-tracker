@@ -58,6 +58,20 @@ app.put("/api/extractions/:name/samples/:id", (req, res) => {
 		sample.priority = req.body.priority;
 		sample.cleaned = req.body.cleaned;
 		sample.sampled = req.body.sampled;
+		if(sample.cleaned){
+		var today = new Date();
+		var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+		var time = (today.getHours()-4) + ":" + today.getMinutes() + ":" + today.getSeconds();
+		var dateTime = date+' '+time;
+		}
+		sample.cleaned_date = dateTime;
+		if(sample.sampled){
+		var today2 = new Date();
+		var date2 = today2.getFullYear()+'-'+(today2.getMonth()+1)+'-'+today2.getDate();
+		var time2 = (today2.getHours()-4) + ":" + today2.getMinutes() + ":" + today2.getSeconds();
+		var dateTime2 = date2+' '+time2;
+		}
+		sample.sampled_date = dateTime2;
 		extraction.save().then(function(extraction){
 			res.json(extraction);
 		})
