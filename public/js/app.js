@@ -119,10 +119,20 @@ angular
 		
 			
 		
-		this.addtoext = function(extraction) {
+		this.addtoext = function() {
 			console.log("creating")
-			this.newSample = new SampleFactory()
-			this.newSample.$save({name: this.extraction.name}).then(function(){
+			let newSample = new SampleFactory()
+			newSample.name = this.sample.name;
+			newSample.notes = this.sample.notes;
+			newSample.strs = this.sample.strs;
+			newSample.mito = this.sample.mito;
+			newSample.priority = this.sample.priority;
+			newSample.analyst = this.sample.analyst;
+			newSample.cleaned = this.sample.cleaned;
+			newSample.cleaned_date = this.sample.cleaned_date;
+			newSample.sampled = this.sample.sampled;
+			newSample.sampled_date = this.sample.sampled_date;
+			newSample.$save({name: this.extraction.name}).then(function(){
 				$state.reload()
 			})
 		}
