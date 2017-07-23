@@ -104,20 +104,17 @@ angular
 		
 		this.update = function(){
 			this.sample.$update({name: $stateParams.name, id: $stateParams.id}).then(function(){
-				$state.go("samples", {"name": "Unassigned"})
+				$state.go("samples", {name: $state.params.name})
 			})
 		}
 		
 
 		this.destroy = function(){
 			this.sample.$delete({name: $stateParams.name, id: $stateParams.id}).then(function(){
-				$state.go("samples", {"name": "Unassigned"})
+				$state.go("samples", {name: $state.params.name})
 			})
 		}
-
-
-		
-			
+	
 		
 		this.addtoext = function() {
 			console.log("creating")
@@ -133,7 +130,7 @@ angular
 			newSample.sampled = this.sample.sampled;
 			newSample.sampled_date = this.sample.sampled_date;
 			newSample.$save({name: this.extraction.name}).then(function(){
-				$state.reload()
+				$state.go("extractions")
 			})
 		}
 		
