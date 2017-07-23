@@ -35,6 +35,7 @@ angular
 		"$state",
 		"$stateParams",
 		"SampleFactory",
+		"ExtractionFactory",
 		infoControllerFunction
 		])
 	
@@ -97,8 +98,9 @@ angular
 		}
 	}
 
-	function infoControllerFunction($state, $stateParams, SampleFactory){
+	function infoControllerFunction($state, $stateParams, SampleFactory, ExtractionFactory){
 		this.sample = SampleFactory.get({name: $stateParams.name, id: $stateParams.id});
+		this.extraction = ExtractionFactory.get({name: $stateParams.name});
 		
 		this.update = function(){
 			this.sample.$update({name: $stateParams.name, id: $stateParams.id}).then(function(){
@@ -112,4 +114,19 @@ angular
 				$state.go("samples", {"name": "Unassigned"})
 			})
 		}
+
+
+		
+			
+		
+		this.addtoext = function(extraction) {
+			console.log("creating")
+			this.newSample = new SampleFactory()
+			this.newSample.$save({name: this.extraction.name}).then(function(){
+				$state.reload()
+			})
+		}
+		
+
+
 	}

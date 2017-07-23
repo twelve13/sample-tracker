@@ -18,8 +18,9 @@
 </form>
 
 
-<form class="update-sample" ng-submit="vm.updateext()">
-	<div><p>Extraction</p><input type="text" ng-model="vm.sample.extraction" value="vm.sample.extraction"></div>
+<form class="update-sample" ng-submit="vm.addtoext(extraction)">
+	<div><p>Extraction</p><input type="text" ng-model="vm.extraction.name"></div>
+	<div><p>Sample</p><input type="text" ng-model="vm.newSample.name"></div>
 	<div><button type="submit">Update</button></div>
 </form>
 
