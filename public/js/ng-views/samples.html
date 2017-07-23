@@ -1,4 +1,5 @@
 <!-- <div class="new-sample-button" ng-click="show = !show">(+)New Sample</div> -->
+<h2>{{vm.extraction.name}}</h2>
 <form class="new-sample-form" ng-submit="vm.create()">
 	<input type ="text" ng-model="vm.newSample.name" placeholder="Sample Name">
 	<input type ="text" ng-model="vm.newSample.notes" placeholder="Optional Notes">

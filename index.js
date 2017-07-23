@@ -58,7 +58,7 @@ app.put("/api/extractions/:name/samples/:id", (req, res) => {
 		sample.priority = req.body.priority;
 		sample.cleaned = req.body.cleaned;
 		sample.sampled = req.body.sampled;
-		if(sample.cleaned){
+		if(sample.cleaned && !sample.sampled){
 		var today = new Date();
 		var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 		var time = (today.getHours()-4) + ":" + today.getMinutes() + ":" + today.getSeconds();
