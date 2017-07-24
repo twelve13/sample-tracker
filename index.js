@@ -22,6 +22,13 @@ app.get("/api/extractions/:name", (req, res) => {
 	});
 });
 
+//new extraction
+app.post("/api/extractions", (req, res) => {
+	models.Extraction.create(req.body).then(function(extraction) {
+		res.json(extraction);
+	});
+});
+
 //new sample
 app.post("/api/extractions/:name/samples", (req, res) => {
 	models.Extraction.findOne({name: req.params.name}).then(function(extraction) {
