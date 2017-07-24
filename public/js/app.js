@@ -118,7 +118,7 @@ angular
 	
 		
 		this.addtoext = function() {
-			console.log("creating")
+			console.log(this.move)
 			let newSample = new SampleFactory()
 			newSample.name = this.sample.name;
 			newSample.notes = this.sample.notes;
@@ -130,7 +130,7 @@ angular
 			newSample.cleaned_date = this.sample.cleaned_date;
 			newSample.sampled = this.sample.sampled;
 			newSample.sampled_date = this.sample.sampled_date;
-			newSample.$save({name: this.extraction.name}).then(function(){
+			newSample.$save({name: this.move.name}).then(function(){
 				$state.go("extractions")
 			})
 		}
