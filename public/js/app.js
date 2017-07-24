@@ -100,6 +100,7 @@ angular
 
 	function infoControllerFunction($state, $stateParams, SampleFactory, ExtractionFactory){
 		this.sample = SampleFactory.get({name: $stateParams.name, id: $stateParams.id});
+		this.extractions = ExtractionFactory.query()
 		this.extraction = ExtractionFactory.get({name: $stateParams.name});
 		
 		this.update = function(){
