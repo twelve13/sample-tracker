@@ -1,5 +1,26 @@
-<div ng-repeat="extraction in vm.extractions">
-	<div>
-		<div>{{extraction.name}}</div>
+<form class="new-form" ng-submit="vm.create()">
+<p>New Extraction</p>
+	<input type ="text" ng-model="vm.newExtraction.name" placeholder="Extraction Name">
+	<input type ="text" ng-model="vm.newExtraction.goal_date" placeholder="Goal Date">
+	<input type ="text" ng-model="vm.newExtraction.analyst" placeholder="Analyst">
+	<button type ="submit">Create</button>
+</form>
+
+
+<div class="extraction-wrapper">
+	<div ng-repeat="extraction in vm.extractions">
+		<div class="extraction-entry" ng-class="{'bbp-added' : (extraction.bbp_added == true), 'extracted' : (extraction.extracted == true)}">
+			<div class="extraction-info">
+				<div class="extraction-name"><a ui-sref="samples({name: extraction.name})">{{extraction.name}}</a></div>
+				<div>Goal Date: {{extraction.goal_date}}</div>
+				<div>Analyst: {{extraction.analyst}}</div>
+				<div>Notes: {{extraction.notes}}</div>
+			</div>
+			<div class="sample-block">
+				<div ng-repeat="sample in extraction.samples">
+					<div>{{sample.name}}</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

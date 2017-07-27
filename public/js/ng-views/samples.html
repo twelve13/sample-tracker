@@ -1,5 +1,19 @@
-<!-- <div class="new-sample-button" ng-click="show = !show">(+)New Sample</div> -->
-<form class="new-sample-form" ng-submit="vm.create()">
+<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
+
+<form class="update-sample" ng-submit="vm.updateme()">
+	<div><p>Extraction</p><input type="text" ng-model="vm.extraction.name" value="vm.extraction.name"></div>
+	<div><p>Goal Date</p><input type="text" ng-model="vm.extraction.goal_date" value="vm.extraction.goal_date"></div>
+	<div><p>Analyst</p><input type="text" ng-model="vm.extraction.analyst" value="vm.extraction.analyst"></div>
+	<div><p>Notes</p><input type="text" ng-model="vm.extraction.notes" value="vm.extraction.notes"></div>
+	<div><p>BBP Added</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
+	<div><p>Extracted</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
+
+
+	<div><button type="submit">Update</button></div>
+</form>
+
+<form class="new-form" ng-submit="vm.create()">
+	<p>New Sample</p>
 	<input type ="text" ng-model="vm.newSample.name" placeholder="Sample Name">
 	<input type ="text" ng-model="vm.newSample.notes" placeholder="Optional Notes">
 	<input type ="checkbox" ng-model="vm.newSample.strs">STRs
@@ -17,18 +31,24 @@
 	<p>Analyst</p>
 </div>
 
-<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
-
-<div ng-repeat="sample in vm.samples | filter: vm.search" ng-class="{'priority' : (sample.priority == true)}">
+<div ng-repeat="sample in vm.extraction.samples | filter: vm.search" ng-class="{'priority' : (sample.priority == true)}">
 	<div class="sample-entry" ng-class="{'cleaned' : (sample.cleaned == true), 'sampled' : (sample.sampled == true)}">
+	<div class="sample-info">
 		<div>{{sample.name}}</div>
 		<div>{{sample.notes}}</div>
 		<div><div ng-class="{'strs' : (sample.strs != true)}">STRs</div></div>
 		<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 		<div>{{sample.analyst}}</div>
-		<div>{{sample.sampled}}</div>
-		<div class="update-button"><div><a ui-sref="sample-info({name: sample.name})">Update</a></div></div>
+			<div class="update-button"><div><a ui-sref="sample-info({name: vm.extraction.name, id: sample._id})">Update</a></div></div>
 	</div>
+	<div class="timestamp">
+		<div><div ng-class="{'updated-date' : !sample.updated}">Updated on: {{sample.updated}}</div></div>
+	
+	</div>
+	</div>
+
 </div>
+
+<div class="delete-sample"><button ng-click="vm.destroy()">Delete Extraction</button></div>
 
 

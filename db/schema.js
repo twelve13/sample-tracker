@@ -9,16 +9,6 @@ mongoose.connection.once("open", () => {
 	console.log("database has been connected");
 });
 
-const ExtractionSchema = new mongoose.Schema({
-	name: String,
-	goal_date: String,
-	analyst: String,
-	bbp_added: Boolean,
-	bbp_date: {type: Date, default: Date.now},
-	extracted: Boolean,
-	extracted_date: {type: Date, default: Date.now}
-});
-
 const SampleSchema = new mongoose.Schema({
 	name: String,
 	notes: String,
@@ -27,11 +17,20 @@ const SampleSchema = new mongoose.Schema({
 	priority: Boolean,
 	analyst: String,
 	cleaned: Boolean,
-	cleaned_date: {type: Date, default: Date.now},
 	sampled: Boolean,
-	sampled_date: {type: Date, default: Date.now},
-	extraction: {type: mongoose.Schema.ObjectId, ref: "Extraction"}
+	updated: String,
 });
+
+const ExtractionSchema = new mongoose.Schema({
+	name: String,
+	goal_date: String,
+	analyst: String,
+	notes: String,
+	bbp_added: Boolean,
+	extracted: Boolean,
+	samples : [SampleSchema]
+});
+
 
 var Extraction = mongoose.model("Extraction", ExtractionSchema);
 var Sample = mongoose.model("Sample", SampleSchema);

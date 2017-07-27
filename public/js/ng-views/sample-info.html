@@ -1,4 +1,4 @@
-<div><a ui-sref="samples">Back</a></div>
+<div><a ui-sref="samples({name: vm.extraction.name})">Back to {{vm.extraction.name}}</a></div>
 
 <div class="update-wrapper">
 
@@ -14,9 +14,26 @@
 	<div><p>Cleaned</p><input type="checkbox" ng-model="vm.sample.cleaned" value="vm.sample.cleaned"></div>
 	<div><p>Sampled</p><input type="checkbox" ng-model="vm.sample.sampled" value="vm.sample.sampled"></div>
 
-	<div><p>Extraction</p><input type="text" ng-model="vm.sample.extraction" value="vm.sample.extraction"></div>
 	<div><button type="submit">Update</button></div>
 </form>
 
+<form class="update-sample" ng-submit="vm.addtoext()">
+<select ng-model="vm.move" ng-options="extraction.name for extraction in vm.extractions">
+	
+		
+	
+</select>
+
+	
+
+	<div><button type="submit" ng-click="vm.destroy()">Update</button></div>
+</form>
+
+
+
+
 </div>
+
+
+<div class="delete-sample"><button ng-click="vm.destroy()">Delete Extraction</button></div>
 

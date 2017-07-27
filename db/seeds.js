@@ -15,22 +15,6 @@ Sample.remove({}, err => {
 	}
 });
 
-const ext1 = new Extraction({
-	name: "071417-EXT1",
-	goal_date: "7/17/17",
-	analyst: "CC",
-	bbp_added: false,
-	extracted: false,
-});
-
-const ext2 = new Extraction({
-	name: "071417-EXT2",
-	goal_date: "7/17/17",
-	analyst: "ABC",
-	bbp_added: false,
-	extracted: false
-});
-
 
 const sample1 = new Sample({
 	name: "ABC1701-0001-E01",
@@ -86,19 +70,33 @@ const sample5 = new Sample({
 	sampled: false
 });
 
-const samples = [sample1, sample2, sample3, sample4, sample5];
 
-samples.forEach((sample, i) => {
-	sample.save((err, sample) => {
-		if(err){
-			console.log(err)
-		} else {
-			console.log(`${sample} was saved to the database`)
-		}
-	});
+const unassigned = new Extraction({
+	name: "Unassigned",
+	goal_date: "7/31/17",
+	analyst: "CC",
+	bbp_added: false,
+	extracted: false,
+	samples: [sample1, sample2, sample3, sample4, sample5]
+})
+
+const ext1 = new Extraction({
+	name: "071417-EXT1",
+	goal_date: "7/17/17",
+	analyst: "CC",
+	bbp_added: false,
+	extracted: false
 });
 
-const extractions = [ext1, ext2];
+const ext2 = new Extraction({
+	name: "071417-EXT2",
+	goal_date: "7/17/17",
+	analyst: "ABC",
+	bbp_added: false,
+	extracted: false
+});
+
+const extractions = [unassigned, ext1, ext2];
 
 extractions.forEach((extraction, i) => {
 	extraction.save((err, extraction) => {
