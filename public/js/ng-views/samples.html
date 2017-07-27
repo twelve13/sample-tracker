@@ -1,6 +1,7 @@
-<!-- <div class="new-sample-button" ng-click="show = !show">(+)New Sample</div> -->
-<h2>{{vm.extraction.name}}</h2>
-<form class="new-sample-form" ng-submit="vm.create()">
+<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
+
+<form class="new-form" ng-submit="vm.create()">
+	<p>New Sample</p>
 	<input type ="text" ng-model="vm.newSample.name" placeholder="Sample Name">
 	<input type ="text" ng-model="vm.newSample.notes" placeholder="Optional Notes">
 	<input type ="checkbox" ng-model="vm.newSample.strs">STRs
@@ -9,6 +10,7 @@
 	<input type ="text" ng-model="vm.newSample.analyst" placeholder="Analyst">
 	<button type ="submit">Create</button>
 </form>
+
 <div class="headings">
 	<p>Sample</p>
 	<p>Notes</p>
@@ -17,19 +19,21 @@
 	<p>Analyst</p>
 </div>
 
-<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
-
 <div ng-repeat="sample in vm.extraction.samples | filter: vm.search" ng-class="{'priority' : (sample.priority == true)}">
 	<div class="sample-entry" ng-class="{'cleaned' : (sample.cleaned == true), 'sampled' : (sample.sampled == true)}">
+	<div class="sample-info">
 		<div>{{sample.name}}</div>
 		<div>{{sample.notes}}</div>
 		<div><div ng-class="{'strs' : (sample.strs != true)}">STRs</div></div>
 		<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 		<div>{{sample.analyst}}</div>
-		<div>{{sample.extraction}}</div>
-		<div><div ng-class="{'cleanedDate' : (sample.cleaned != true)}">cleaned on:{{sample.cleaned_date}}</div></div>
-		<div><div ng-class="{'sampledDate' : (sample.sampled != true)}">sampled on:{{sample.sampled_date}}</div></div>
-		<div class="update-button"><div><a ui-sref="sample-info({name: vm.extraction.name, id: sample._id})">Update</a></div></div>
+			<div class="update-button"><div><a ui-sref="sample-info({name: vm.extraction.name, id: sample._id})">Update</a></div></div>
+	</div>
+	<div class="timestamp">
+		<div><div ng-class="{'cleanedDate' : (sample.cleaned != true)}">cleaned on: {{sample.cleaned_date}}</div></div>
+		<div><div ng-class="{'sampledDate' : (sample.sampled != true)}">sampled on: {{sample.sampled_date}}</div></div>
+	
+	</div>
 	</div>
 
 </div>

@@ -5,7 +5,7 @@ body {
 
 /* extractions page */
 
-.new-extraction-form {
+.new-form {
 	align-items: center;
 	background-color: #eaece9;
 	display: flex;
@@ -13,12 +13,12 @@ body {
 	margin-bottom: 2vh;
 }
 
-.new-extraction-form * {
+.new-form * {
 	height: 25px;
 	margin: 0 1%;	
 }
 
-.new-extraction-form p{
+.new-form p{
 	font-size: 20px;
 	margin-bottom: 15px;
 }
@@ -58,6 +58,19 @@ body {
 
 /* samples page */
 
+.searchbar {
+	align-items: center;
+	display: flex;
+	height: 25px;
+	justify-content: flex-end;
+	margin: 0 1% 1% 0;
+}
+
+.searchbar input {
+	margin-left: 1%;
+	
+}
+
 .sample-entry, .headings {
 	display: flex;
 }
@@ -65,34 +78,53 @@ body {
 .sample-entry {
 	background-color: white;
 	border: solid black 2px;
-	border-radius: 5px;
+	border-radius: 10px;
 	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
 	margin:  1% 0;
 	padding: 1%;
 	flex-wrap: wrap;
 }
 
-.sample-entry div, .headings p{
+.sample-entry > div {
+	display: flex;
+	width: 100%;
+}
+
+.sample-info > div {
+	width: 15%;
+}
+
+.headings p{
 	width: 15%;
 }
 
 .headings {
 	font-size: 24px;
 	font-weight: 800;
+	height: 50px;
 }
 
-.priority {
-	color: red;
+.priority > div {
+	border: solid red 4px;
 }
 
 .strs, .mito, .cleanedDate, .sampledDate {
 	display: none;
 }
 
+.timestamp {
+	justify-content: flex-end;
+	font-size: 8px;
+	width: 100%;
+}
+
 .update-button div {
 	background-color: silver;
 	border-radius: 10px;
-	height: 25px;
+	height: 35px;
+	margin-left: 100%;
 	text-align: center;
 	width: 50%;
 }
