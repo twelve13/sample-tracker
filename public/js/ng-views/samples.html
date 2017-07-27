@@ -1,5 +1,18 @@
 <div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
 
+<form class="update-sample" ng-submit="vm.updateme()">
+	<div><p>Extraction</p><input type="text" ng-model="vm.extraction.name" value="vm.extraction.name"></div>
+	<div><p>Goal Date</p><input type="text" ng-model="vm.extraction.goal_date" value="vm.extraction.goal_date"></div>
+	<div><p>Analyst</p><input type="text" ng-model="vm.extraction.analyst" value="vm.extraction.analyst"></div>
+	<div><p>Notes</p><input type="text" ng-model="vm.extraction.notes" value="vm.extraction.notes"></div>
+	<div><p>BBP Added</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
+	<div><p>Extracted</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
+	<div><p>Archive</p><input type="checkbox" ng-model="vm.extraction.archived" value="vm.extraction.archived"></div>
+
+
+	<div><button type="submit">Update</button></div>
+</form>
+
 <form class="new-form" ng-submit="vm.create()">
 	<p>New Sample</p>
 	<input type ="text" ng-model="vm.newSample.name" placeholder="Sample Name">

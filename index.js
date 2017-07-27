@@ -29,6 +29,13 @@ app.post("/api/extractions", (req, res) => {
 	});
 });
 
+//edit extraction
+app.put("/api/extractions/:name", (req, res) => {
+	models.Extraction.findOneAndUpdate({name: req.params.name}, req.body, {new: true}).then(function(extraction) {
+		res.json(extraction);
+	});
+});
+
 //new sample
 app.post("/api/extractions/:name/samples", (req, res) => {
 	models.Extraction.findOne({name: req.params.name}).then(function(extraction) {

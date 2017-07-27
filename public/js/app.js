@@ -21,6 +21,7 @@ angular
 		])
 	.controller("ExtractionController", [
 		"$state",
+		"$stateParams",
 		"ExtractionFactory",
 		extractionControllerFunction
 		])
@@ -76,14 +77,16 @@ angular
 	}
 
 
-	function extractionControllerFunction($state, ExtractionFactory){
+	function extractionControllerFunction($state, $stateParams, ExtractionFactory){
 		this.extractions = ExtractionFactory.query()
+		
 		this.newExtraction = new ExtractionFactory()
 		this.create = function() {
 			this.newExtraction.$save().then(function(extraction){
 				$state.reload()
 			})
 		}
+	
 	}
 
 	function sampleControllerFunction($state, $stateParams, ExtractionFactory, SampleFactory){
@@ -94,6 +97,11 @@ angular
 		this.create = function() {
 			this.newSample.$save({name: this.extraction.name}).then(function(){
 				$state.reload()
+			})
+		}
+		this.updateme = function(){
+			this.extraction.$update({name: $stateParams.name}).then(function(){
+				$state.go("extractions")
 			})
 		}
 	}
