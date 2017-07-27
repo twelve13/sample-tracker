@@ -30,8 +30,7 @@
 			<div class="update-button"><div><a ui-sref="sample-info({name: vm.extraction.name, id: sample._id})">Update</a></div></div>
 	</div>
 	<div class="timestamp">
-		<div><div ng-class="{'cleanedDate' : (sample.cleaned != true)}">cleaned on: {{sample.cleaned_date}}</div></div>
-		<div><div ng-class="{'sampledDate' : (sample.sampled != true)}">sampled on: {{sample.sampled_date}}</div></div>
+		<div><div ng-class="{'updated-date' : !sample.updated}">Updated on: {{sample.updated}}</div></div>
 	
 	</div>
 	</div>

@@ -110,14 +110,15 @@ body {
 	border: solid red 4px;
 }
 
-.strs, .mito, .cleanedDate, .sampledDate {
+.strs, .mito, .updated-date {
 	display: none;
 }
 
 .timestamp {
 	justify-content: flex-end;
 	font-size: 8px;
-	width: 100%;
+	margin-right: 2.5%;
+	width: 97.5%;
 }
 
 .update-button div {
