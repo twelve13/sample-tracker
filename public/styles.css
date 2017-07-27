@@ -1,6 +1,62 @@
 body {
 	background-color: gray;
+	font-family: 'Cairo', sans-serif;
 }
+
+/* extractions page */
+
+.new-extraction-form {
+	align-items: center;
+	background-color: #eaece9;
+	display: flex;
+	height: 50px;
+	margin-bottom: 2vh;
+}
+
+.new-extraction-form * {
+	height: 25px;
+	margin: 0 1%;	
+}
+
+.new-extraction-form p{
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.extraction-wrapper {
+	display: flex;
+}
+
+.extraction-wrapper > div{
+	background-color: white;
+	border: solid black 3px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	display: flex;
+	margin:  1%;
+	padding: 1%;
+	width: 23%;
+}
+
+.extraction-entry div{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.extraction-name {
+	font-size: 24px;
+	justify-content: center;
+	width: 100%;
+}
+
+.sample-block {
+	background-color: #eaece9;
+	max-height: 360px;
+	overflow: scroll;
+}
+
+/* samples page */
 
 .sample-entry, .headings {
 	display: flex;
@@ -88,24 +144,3 @@ body {
 	background-color: limegreen;
 }
 
-.extraction-entry {
-	display: flex;
-	background-color: white;
-	border: solid black 2px;
-	border-radius: 5px;
-	box-sizing: border-box;
-	margin:  1% 0;
-	padding: 1%;
-	flex-wrap: wrap;
-}
-
-.extraction-entry div{
-	width: 20%;
-}
-.sample-block {
-	background-color: red;
-}
-
-.sample-block div {
-	width: 100%;
-}
