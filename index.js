@@ -36,6 +36,13 @@ app.put("/api/extractions/:name", (req, res) => {
 	});
 });
 
+//delete extraction
+app.delete("/api/extractions/:name", (req, res) => {
+	models.Extraction.findOneAndRemove({name: req.params.name}).then(function(){
+		res.json({success: true})
+	});
+});
+
 //new sample
 app.post("/api/extractions/:name/samples", (req, res) => {
 	models.Extraction.findOne({name: req.params.name}).then(function(extraction) {

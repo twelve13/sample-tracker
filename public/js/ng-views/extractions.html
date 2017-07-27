@@ -9,13 +9,12 @@
 
 <div class="extraction-wrapper">
 	<div ng-repeat="extraction in vm.extractions">
-		<div class="extraction-entry" ng-class="extraction.name">
+		<div class="extraction-entry" ng-class="{'bbp-added' : (extraction.bbp_added == true), 'extracted' : (extraction.extracted == true)}">
 			<div class="extraction-info">
 				<div class="extraction-name"><a ui-sref="samples({name: extraction.name})">{{extraction.name}}</a></div>
 				<div>Goal Date: {{extraction.goal_date}}</div>
 				<div>Analyst: {{extraction.analyst}}</div>
-				<div>BBP added: {{extraction.bbp_added}}</div>
-				<div>Extracted: {{extraction.extracted}}</div>
+				<div>Notes: {{extraction.notes}}</div>
 			</div>
 			<div class="sample-block">
 				<div ng-repeat="sample in extraction.samples">

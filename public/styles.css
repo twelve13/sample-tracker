@@ -25,6 +25,7 @@ body {
 
 .extraction-wrapper {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .extraction-wrapper > div{
@@ -54,6 +55,14 @@ body {
 	background-color: #eaece9;
 	max-height: 360px;
 	overflow: scroll;
+}
+
+.bbp-added {
+	background-color: pink;
+}
+
+.extracted {
+	background-color: purple;
 }
 
 /* samples page */

@@ -28,8 +28,6 @@ const ExtractionSchema = new mongoose.Schema({
 	notes: String,
 	bbp_added: Boolean,
 	extracted: Boolean,
-	updated: String,
-	archived: Boolean,
 	samples : [SampleSchema]
 });
 

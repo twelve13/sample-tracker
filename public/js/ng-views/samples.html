@@ -7,7 +7,6 @@
 	<div><p>Notes</p><input type="text" ng-model="vm.extraction.notes" value="vm.extraction.notes"></div>
 	<div><p>BBP Added</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
 	<div><p>Extracted</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
-	<div><p>Archive</p><input type="checkbox" ng-model="vm.extraction.archived" value="vm.extraction.archived"></div>
 
 
 	<div><button type="submit">Update</button></div>
@@ -49,5 +48,7 @@
 	</div>
 
 </div>
+
+<div class="delete-sample"><button ng-click="vm.destroy()">Delete Extraction</button></div>
 
 

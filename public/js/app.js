@@ -104,6 +104,11 @@ angular
 				$state.go("extractions")
 			})
 		}
+		this.destroy = function(){
+			this.extraction.$delete({name: $stateParams.name}).then(function(){
+				$state.go("extractions")
+			})
+		}
 	}
 
 	function infoControllerFunction($state, $stateParams, SampleFactory, ExtractionFactory){
