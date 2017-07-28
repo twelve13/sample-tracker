@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/sample-tracker");
+mongoose.connect(process.env.MONGOLAB_URL);
 
 mongoose.connection.on("error", err => {
 	console.log(err);

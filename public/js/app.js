@@ -41,7 +41,8 @@ angular
 		])
 	
 
-	function RouterFunction($stateProvider){
+	function RouterFunction($stateProvider, $locationProvider, $urlRouterProvider){
+		$locationProvider.html5Mode(true)
 		$stateProvider
 			.state("extractions", {
 				url: "/extractions",
@@ -61,7 +62,8 @@ angular
 				templateUrl: "/assets/js/ng-views/sample-info.html",
 				controller: "InfoController",
 				controllerAs: "vm"
-			})	
+			})
+			$urlRouterProvider.otherwise("/extractions")	
 	}
 
 	function ExtractionFactoryFunction($resource) {
