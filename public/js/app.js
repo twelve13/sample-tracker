@@ -144,7 +144,7 @@ angular
 			newSample.sampled = this.sample.sampled;
 			newSample.sampled_date = this.sample.sampled_date;
 			newSample.$save({name: this.move.name}).then(function(){
-				$state.go("extractions")
+				$state.go("samples", {name: $state.params.name})
 			})
 		}
 		

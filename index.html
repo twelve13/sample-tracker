@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Sample Tracker</title>
+	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 	<link rel="stylesheet" href="./assets/styles.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
@@ -10,7 +11,11 @@
 	<script src="/assets/js/app.js"></script>
 </head>
 <body data-ng-app="sample-tracker">
-<div class="app-name">Sample Tracker</div><a ui-sref="extractions">Extractions</a>
+<header>
+	<div class="app-name">Sample Tracker</div>
+	<div class="author">created by Caroline Chen</div>
+</header>
+<nav><a ui-sref="extractions">EXTRACTIONS</a></nav>
 	<main data-ui-view></main>
 </body>
 </html>

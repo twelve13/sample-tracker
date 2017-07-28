@@ -1,6 +1,32 @@
 body {
-	background-color: gray;
+	background-image: url("https://previews.123rf.com/images/yamonstro/yamonstro1510/yamonstro151000009/47614590-Abstract-3d-vector-technology-gray-background-Connection-structure-Internet-technology-business-vect-Stock-Vector.jpg");
 	font-family: 'Cairo', sans-serif;
+}
+
+a {
+	color: black;
+}
+
+nav {
+	background-color: gray;
+}
+
+nav a {
+	color: white;
+}
+
+header {
+	background-color: rgba(247, 247, 247, 0.8);
+	box-sizing: border-box;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 30px;
+	padding-top: 1%;
+	text-align: center;
+}
+
+.author {
+	font-size: 12px;
+	margin-top: 1%;
 }
 
 /* extractions page */
@@ -8,6 +34,7 @@ body {
 .new-form {
 	align-items: center;
 	background-color: #eaece9;
+	border: solid 3px gray;
 	display: flex;
 	height: 50px;
 	margin-bottom: 2vh;
@@ -58,26 +85,37 @@ body {
 }
 
 .bbp-added {
-	background-color: pink;
+	background-color: #ffe500;
+	background: linear-gradient(#ffe500, #fff59e);
 }
 
 .extracted {
-	background-color: purple;
+	background-color: #ffae00;
+	background: linear-gradient(#ffae00, #ffc270);
 }
 
 /* samples page */
 
 .searchbar {
 	align-items: center;
+	background-color: rgba(247, 247, 247, 0.8);
+	box-sizing: border-box;
 	display: flex;
 	height: 25px;
 	justify-content: flex-end;
-	margin: 0 1% 1% 0;
+	padding-right: 1%;
 }
 
 .searchbar input {
 	margin-left: 1%;
-	
+}
+
+.bbp-add {
+	color: #ffe500;
+}
+
+.extract {
+	color: #ffae00;
 }
 
 .sample-entry, .headings {
@@ -116,7 +154,7 @@ body {
 }
 
 .priority > div {
-	border: solid red 4px;
+	border: solid #9d00ff 4px;
 }
 
 .strs, .mito, .updated-date {
@@ -145,8 +183,10 @@ body {
 }
 
 .update-sample {
+	background-color: gray;
 	display: flex;
-	margin-bottom: 5%;
+	margin-bottom: 2%;
+	padding-bottom: 1%;
 	width: 100%;
 }
 
@@ -159,9 +199,10 @@ body {
 }
 
 .update-sample div p {
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 800;
 	width: 100%;
+	margin: 0;
 }
 
 .update-sample button {
@@ -180,10 +221,20 @@ body {
 }
 
 .cleaned {
-	background-color: aqua;
+	background-color: #61ddff;
+	background: linear-gradient(to right, #61ddff, white);
 }
 
 .sampled {
-	background-color: limegreen;
+	background-color: #61ffc2;
+	background: linear-gradient(to right, #61ffc2, white);
+}
+
+.clean {
+	color: #61ddff;
+}
+
+.sample {
+	color: #61ffc2;
 }
 
