@@ -1,16 +1,14 @@
-<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
-
-<div ng-click="showme = !showme">(+) Update Extraction</div>
-
-<form class="update-sample" ng-show="showme" ng-submit="vm.updateme()">
+<form class="update-sample" ng-submit="vm.updateme()">
 	<div><p>Extraction</p><input type="text" ng-model="vm.extraction.name" value="vm.extraction.name"></div>
 	<div><p>Goal Date</p><input type="text" ng-model="vm.extraction.goal_date" value="vm.extraction.goal_date"></div>
 	<div><p>Analyst</p><input type="text" ng-model="vm.extraction.analyst" value="vm.extraction.analyst"></div>
 	<div><p>Notes</p><input type="text" ng-model="vm.extraction.notes" value="vm.extraction.notes"></div>
 	<div class="bbp-add"><p>BBP Added</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
 	<div class="extract"><p>Extracted</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
-	<div><button type="submit" ng-click="showme = !showme">Update</button></div>
+	<div><button type="submit">Update</button></div>
 </form>
+
+<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
 
 <div class="new-extraction-button" ng-click="show = !show">(+) New Sample</div>
 

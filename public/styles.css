@@ -1,4 +1,5 @@
 body {
+	background-color: rgba(247, 247, 247, 0.8);
 	font-family: 'Cairo', sans-serif;
 }
 
@@ -17,7 +18,7 @@ nav a {
 }
 
 header {
-	background-color: rgba(247, 247, 247, 0.8);
+	background-color: white;
 	box-sizing: border-box;
 	font-family: 'Orbitron', sans-serif;
 	font-size: 30px;
@@ -243,6 +244,7 @@ header {
 	background-color: gray;
 	display: flex;
 	font-size: 18px;
+	font-weight: 800;
 	width: 100%;
 }
 
