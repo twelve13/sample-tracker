@@ -1,9 +1,12 @@
-<form class="new-form" ng-submit="vm.create()">
+<div class="new-extraction-button" ng-click="show = !show">(+) New Extraction</div>
+
+<form class="new-form" ng-show="show" ng-submit="vm.create()">
 <p>New Extraction</p>
 	<input type ="text" ng-model="vm.newExtraction.name" placeholder="Extraction Name">
 	<input type ="text" ng-model="vm.newExtraction.goal_date" placeholder="Goal Date">
 	<input type ="text" ng-model="vm.newExtraction.analyst" placeholder="Analyst">
-	<button type ="submit">Create</button>
+	<input type ="text" ng-model="vm.newExtraction.notes" placeholder="Notes">
+	<button type ="submit" ng-click="show = !show">Create</button>
 </form>
 
 

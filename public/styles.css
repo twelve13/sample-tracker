@@ -1,5 +1,6 @@
 body {
-	background-image: url("https://previews.123rf.com/images/yamonstro/yamonstro1510/yamonstro151000009/47614590-Abstract-3d-vector-technology-gray-background-Connection-structure-Internet-technology-business-vect-Stock-Vector.jpg");
+	/*background-image: url("https://previews.123rf.com/images/yamonstro/yamonstro1510/yamonstro151000009/47614590-Abstract-3d-vector-technology-gray-background-Connection-structure-Internet-technology-business-vect-Stock-Vector.jpg");*/
+	
 	font-family: 'Cairo', sans-serif;
 }
 
@@ -9,6 +10,8 @@ a {
 
 nav {
 	background-color: gray;
+	box-sizing: border-box;
+	padding-left: 1%;
 }
 
 nav a {
@@ -20,13 +23,12 @@ header {
 	box-sizing: border-box;
 	font-family: 'Orbitron', sans-serif;
 	font-size: 30px;
-	padding-top: 1%;
+	padding: 1% 0;
 	text-align: center;
 }
 
 .author {
 	font-size: 12px;
-	margin-top: 1%;
 }
 
 /* extractions page */
@@ -98,7 +100,7 @@ header {
 
 .searchbar {
 	align-items: center;
-	background-color: rgba(247, 247, 247, 0.8);
+	/*background-color: rgba(247, 247, 247, 0.8);*/
 	box-sizing: border-box;
 	display: flex;
 	height: 25px;
