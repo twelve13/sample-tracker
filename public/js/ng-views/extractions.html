@@ -1,4 +1,10 @@
-<div ng-click="show = !show">(+) New Extraction</div>
+<div id="extractions-header">
+	<div class="new-button" ng-click="show = !show">+ Add New Extraction</div>
+	<div>
+		<div><div id="legend-started"></div><span> = extraction started</span></div>
+		<div><div id="legend-complete"></div><span> = extraction complete</span></div>
+	</div>
+</div>
 
 <form class="new-form" ng-show="show" ng-submit="vm.create()">
 	<p>New Extraction</p>
