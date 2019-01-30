@@ -1,6 +1,6 @@
 body {
-	background-color: rgba(247, 247, 247, 0.8);
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
+	line-height: 30px;
 }
 
 a {
@@ -8,9 +8,10 @@ a {
 }
 
 nav {
-	background-color: gray;
+	background-color: black;
 	box-sizing: border-box;
-	padding-left: 1%;
+	font-size: 20px;
+	padding: 10px;
 }
 
 nav a {
@@ -20,9 +21,8 @@ nav a {
 header {
 	background-color: white;
 	box-sizing: border-box;
-	font-family: 'Orbitron', sans-serif;
 	font-size: 30px;
-	padding: 1% 0;
+	padding: 3% 0;
 	text-align: center;
 }
 
@@ -76,11 +76,15 @@ header {
 	box-sizing: border-box;
 	display: flex;
 	margin:  1%;
-	padding: 1%;
+	padding: 2%;
 	width: 23%;
 }
 
-.extraction-entry div{
+.extraction-wrapper a {
+	text-decoration: none;
+}
+
+.extraction-entry div {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
@@ -89,23 +93,31 @@ header {
 .extraction-name {
 	font-size: 24px;
 	justify-content: center;
+	padding-bottom: 10px;
+	text-decoration: underline;
 	width: 100%;
 }
 
 .sample-block {
 	background-color: #eaece9;
+	box-sizing: border-box;
 	max-height: 360px;
+	padding: 4%;
 	overflow: scroll;
+}
+
+.bbp-added, .extracted {
+	box-sizing: border-box;
+	padding: 4%;
+	width: 100%;
 }
 
 .bbp-added {
 	background-color: #ffe500;
-	width: 100%;
 }
 
 .extracted {
 	background-color: #ffae00;
-	width: 100%;
 }
 
 #legend-started, #legend-complete {
