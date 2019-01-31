@@ -26,7 +26,7 @@ header {
 	background-color: white;
 	box-sizing: border-box;
 	font-size: 30px;
-	padding: 3% 0;
+	padding: 2% 0;
 	text-align: center;
 }
 
@@ -147,7 +147,7 @@ header {
 /* samples page */
 
 .update-extraction, .update-sample {
-	background-color: gray;
+	border-bottom: solid 2px black;
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: 2%;
@@ -201,7 +201,10 @@ header {
 }
 
 .searchbar input {
+	border-radius: 15px;
 	margin-left: 1%;
+	padding: 5px;
+	width: 100%;
 }
 
 .new-form-samples {
@@ -211,6 +214,7 @@ header {
 	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
 	margin-bottom: 2vh;
 	text-align: center;
 }
@@ -218,6 +222,11 @@ header {
 .new-form-samples * {
 	height: 25px;
 	margin-right: 1%;
+}
+
+#samples-main {
+	box-sizing: border-box;
+	padding: 0 3%;
 }
 
 .headings {
@@ -234,36 +243,71 @@ header {
 	width: 25%;
 }
 
+#legend-sampling-started, #legend-sampling-complete {
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+}
+
+#legend-sampling-started {
+	background: url(https://www.freeiconspng.com/uploads/water-drop-icon-symbol-20.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#legend-sampling-complete {
+	background: url(test-tube.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px 20px;	
+}
+
 .sample-entry, .headings {
 	display: flex;
 }
 
 .sample-entry {
 	background-color: white;
-	border: solid black 2px;
+	border: solid black 3px;
 	border-radius: 10px;
-	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 	margin:  1% 0;
-	padding: 1%;
+	position: relative;
 }
 
 .sample-entry > div {
 	display: flex;
-	width: 100%;
+	
+}
+
+.sample-status {
+	width: 5%;
+}
+
+.sample-info {
+	box-sizing: border-box;
+	padding: 15px 1%;
+	width: 95%;
 }
 
 .sample-info > div {
 	width: 15%;
 }
 
-.sample-info :nth-child(1) {
+.sample-info :nth-child(2) {
 	width: 25%;
 }
 
-.priority > div {
-	border: solid #9d00ff 4px;
+.importance {
+	display: none;
+}
+
+.importance.priority {
+	display: block;
+	left: 20px;
+	position: absolute;
 }
 
 .strs, .mito, .updated-date {
@@ -271,10 +315,10 @@ header {
 }
 
 .timestamp {
+	bottom: -8px;
 	font-size: 8px;
-	justify-content: flex-end;
-	margin-right: 2.5%;
-	width: 97.5%;
+	position: absolute;
+	right: 3%;
 }
 
 .update-button {
@@ -286,13 +330,25 @@ header {
 }
 
 .cleaned {
-	background-color: #61ddff;
-	background: linear-gradient(to right, #61ddff, white);
+	border-color: rgb(82, 170, 221);
 }
 
 .sampled {
-	background-color: #61ffc2;
-	background: linear-gradient(to right, #61ffc2, white);
+	border-color: rgb(126, 185, 125);
+}
+
+.cleaned .sample-status {
+	background: url(https://www.freeiconspng.com/uploads/water-drop-icon-symbol-20.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px 40px;
+}
+
+.sampled .sample-status {
+	background: url(test-tube.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100px 50px;
 }
 
 .delete {
@@ -302,7 +358,6 @@ header {
 }
 
 .delete button {
-	background-color: red;
 	height: 25px;
 	margin-top: 2%;
 }
@@ -401,10 +456,6 @@ header {
 
 	.searchbar {
 		justify-content: flex-start;
-	}
-
-	.searchbar input {
-		width: 100%;
 	}
 
 	.new-form-samples * {

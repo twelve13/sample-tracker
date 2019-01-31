@@ -3,14 +3,20 @@
 	<div><p>Goal Date</p><input type="text" ng-model="vm.extraction.goal_date" value="vm.extraction.goal_date"></div>
 	<div><p>Analyst</p><input type="text" ng-model="vm.extraction.analyst" value="vm.extraction.analyst"></div>
 	<div><p>Notes</p><input type="text" ng-model="vm.extraction.notes" value="vm.extraction.notes"></div>
-	<div class="bbp-add"><p>BBP Added</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
-	<div class="extract"><p>Extracted</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
+	<div class="bbp-add"><p>Started</p><input type="checkbox" ng-model="vm.extraction.bbp_added" value="vm.extraction.bbp_added"></div>
+	<div class="extract"><p>Completed</p><input type="checkbox" ng-model="vm.extraction.extracted" value="vm.extraction.extracted"></div>
 	<div><button type="submit">Update</button></div>
 </form>
+<div id="samples-main">
+<div id="extractions-header">
+	<div class="new-button" ng-click="show = !show">+ New Sample</div>
+	<div>
+		<div><div id="legend-sampling-started"></div><span> = sample cleaned</span></div>
+		<div><div id="legend-sampling-complete"></div><span> = sample blended</span></div>
+	</div>
+</div>
 
-<div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div>
-
-<div class="new-extraction-button" ng-click="show = !show">(+) New Sample</div>
+<!-- <div class="searchbar"><p>Search</p><input class="search-field" type="text" ng-model="vm.search"></div> -->
 
 <form class="new-form-samples" ng-show="show" ng-submit="vm.create()">
 	<p>New Sample</p>
@@ -31,8 +37,9 @@
 	<p>Analyst</p>
 </div>
 
-<div ng-repeat="sample in vm.extraction.samples | filter: vm.search" ng-class="{'priority' : (sample.priority == true)}">
+<div ng-repeat="sample in vm.extraction.samples | filter: vm.search" ><div class="importance" ng-class="{'priority' : (sample.priority == true)}">&#9733;</div>
 	<div class="sample-entry" ng-class="{'cleaned' : (sample.cleaned == true), 'sampled' : (sample.sampled == true)}">
+		<div class="sample-status" ></div>
 		<div class="sample-info">
 			<div>{{sample.name}}</div>
 			<div>{{sample.notes}}</div>
@@ -40,14 +47,12 @@
 			<div><div ng-class="{'mito' : (sample.mito != true)}">Mito</div></div>
 			<div>{{sample.analyst}}</div>
 			<div class="update-button"><a ui-sref="sample-info({name: vm.extraction.name, id: sample._id})">Update</a></div>
-		</div>
-		<div class="timestamp">
-			<div><div ng-class="{'updated-date' : !sample.updated}">Updated on: {{sample.updated}}</div></div>
+			<span class="timestamp" ng-class="{'updated-date' : !sample.updated}">Updated on: {{sample.updated}}</span>
 		</div>
 	</div>
 
 </div>
 
 <div class="delete"><button ng-click="vm.destroy()">Delete Extraction</button></div>
-
+</div>
 
