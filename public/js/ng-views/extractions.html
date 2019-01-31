@@ -12,7 +12,7 @@
 	<input type ="text" ng-model="vm.newExtraction.goal_date" placeholder="Goal Date">
 	<input type ="text" ng-model="vm.newExtraction.analyst" placeholder="Analyst">
 	<input type ="text" ng-model="vm.newExtraction.notes" placeholder="Notes">
-	<button type ="submit" ng-click="show = !show">Create</button>
+	<button type ="submit" ng-click="show = !show" ng-if="newForm.$valid"><span>Create</span></button>
 	<div class="requirement" ng-if="newForm.$invalid">Name required</div>
 </form>
 
@@ -29,9 +29,10 @@
 					<div>Goal Date: {{extraction.goal_date}}</div>
 					<div>Analyst: {{extraction.analyst}}</div>
 					<div>Notes: {{extraction.notes}}</div>
+					<div>Samples: </div>
 				</div>
 				<div class="sample-block">
-					<div ng-repeat="sample in extraction.samples">
+					<div class="sample-block__item" ng-repeat="sample in extraction.samples">
 						<div>{{sample.name}}</div>
 					</div>
 				</div>
