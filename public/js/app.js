@@ -81,12 +81,14 @@ angular
 		this.extractions = ExtractionFactory.query()
 		
 		this.newExtraction = new ExtractionFactory()
-		this.create = function() {
-			this.newExtraction.$save().then(function(extraction){
-				$state.reload()
-			})
+		this.create = function(valid) {
+			if (valid) {
+				this.newExtraction.$save().then(function(extraction){
+					$state.reload()
+			
+				})
+			}
 		}
-	
 	}
 
 	function sampleControllerFunction($state, $stateParams, ExtractionFactory, SampleFactory){

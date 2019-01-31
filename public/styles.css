@@ -55,6 +55,7 @@ header {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 2vh;
+	position: relative;
 }
 
 .new-form * {
@@ -62,6 +63,14 @@ header {
 	margin-right: 1%;
 	text-align: center;
 	width: 14%;
+}
+
+.requirement {
+	color: red;
+	font-size: 8px;
+	position: absolute;
+	top: 65%;
+	right: 4%;
 }
 
 .extraction-wrapper {
