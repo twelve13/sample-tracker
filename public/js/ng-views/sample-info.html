@@ -1,26 +1,48 @@
-<div><a ui-sref="samples({name: vm.extraction.name})">Back to {{vm.extraction.name}}</a></div>
-
-<div class="update-wrapper">
+<div><a ui-sref="samples({name: vm.extraction.name})">&lt; Back to {{vm.extraction.name}}</a></div>
+<div class="sample-info-name">{{vm.sample.name}}</div>
+<div id="sample-actions">
+<div class="sample-action">
+	<div class="action-title">Edit Sample</div>
 	<form class="update-sample" ng-submit="vm.update()">
-		<div><p>Sample</p><input type="text" ng-model="vm.sample.name" value="vm.sample.name"></div>
-		<div><p>Notes</p><input type="text" ng-model="vm.sample.notes" value="vm.sample.notes"></div>
-		<div><p>STRs</p><input type="checkbox" ng-model="vm.sample.strs" value="vm.sample.strs"></div>
-		<div><p>Mito</p><input type="checkbox" ng-model="vm.sample.mito" value="vm.sample.mito"></div>
-		<div><p>Priority</p><input type="checkbox" ng-model="vm.sample.priority" value="vm.sample.priority"></div>
-		<div><p>Analyst</p><input type="text" ng-model="vm.sample.analyst" value="vm.sample.analyst"></div>
-		<div class="clean"><p>Cleaned</p><input type="checkbox" ng-model="vm.sample.cleaned" value="vm.sample.cleaned"></div>
-		<div class="sample"><p>Sampled</p><input type="checkbox" ng-model="vm.sample.sampled" value="vm.sample.sampled"></div>
+		<div class="form-section">
+			<div class="form-section__titles">
+				<div>Sample</div>
+				<div>Notes</div>
+				<div>Analyst</div>
+			</div>
+			<div>
+				<div><input type="text" ng-model="vm.sample.name" value="vm.sample.name"></div>
+				<div><input type="text" ng-model="vm.sample.notes" value="vm.sample.notes"></div>
+				<div><input type="text" ng-model="vm.sample.analyst" value="vm.sample.analyst"></div>
+			</div>
+		</div>
+		<div class="form-section">
+			<div class="form-section__process">
+				<div>STRs<input type="checkbox" ng-model="vm.sample.strs" value="vm.sample.strs"></div>
+				<div>Mito<input type="checkbox" ng-model="vm.sample.mito" value="vm.sample.mito"></div>
+				<div>Priority<input type="checkbox" ng-model="vm.sample.priority" value="vm.sample.priority"></div>
+			</div>
+			<div>
+				<div class="clean">Cleaned<input type="checkbox" ng-model="vm.sample.cleaned" value="vm.sample.cleaned"></div>
+				<div class="sample">Sampled<input type="checkbox" ng-model="vm.sample.sampled" value="vm.sample.sampled"></div>
+			</div>
+		</div>
 		<div><button type="submit">Update</button></div>
 	</form>
-
+</div>
+<div class="sample-action">
+	<div class="action-title">Assign To Extraction</div>
 	<form class="assign-extraction" ng-submit="vm.addtoext()">
-		<p>Assign To Extraction</p>
 		<select ng-model="vm.move" ng-options="extraction.name for extraction in vm.extractions"></select>
 		<div><button type="submit" ng-click="vm.destroy()">Update</button></div>
 	</form>
 </div>
+<div class="sample-action">
+	<div class="action-title">Delete Sample</div>
+	<div class="warning">This action is irreversible</div>
+	<button ng-click="vm.destroy()">Delete Sample</button>
+</div>
 
-<div class="delete"><button ng-click="vm.destroy()">Delete Sample</button></div>
-
+</div>
 
 

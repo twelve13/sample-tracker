@@ -9,6 +9,7 @@ a {
 
 button {
 	cursor: pointer;
+	height: 25px;
 }
 
 nav {
@@ -82,7 +83,6 @@ header {
 	border: solid black 3px;
 	border-radius: 10px;
 	box-sizing: border-box;
-	display: flex;
 	margin:  1%;
 	padding: 2%;
 	width: 23%;
@@ -146,7 +146,7 @@ header {
 
 /* samples page */
 
-.update-extraction, .update-sample {
+.update-extraction {
 	border-bottom: solid 2px black;
 	display: flex;
 	flex-wrap: wrap;
@@ -155,7 +155,7 @@ header {
 	width: 100%;
 }
 
-.update-extraction div, .update-sample div {
+.update-extraction div {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -163,20 +163,15 @@ header {
 	width: 14%;
 }
 
-.update-extraction div input, .update-sample div input {
-	width: 80%;
-}
-
-.update-extraction div p, .update-sample div p {
+.update-extraction div p {
 	font-size: 18px;
 	font-weight: 800;
 	margin: 0;
 	width: 100%;
 }
 
-.update-extraction button, .update-sample button {
+.update-extraction button {
 	align-self: flex-end;
-	height: 25px;
 }
 
 .bbp-add {
@@ -236,11 +231,16 @@ header {
 }
 
 .headings p{
-	width: 15%;
+	width: 13.5%;
 }
 
 .headings p:nth-child(1){
-	width: 25%;
+	margin-left: 69px;
+	width: 20%;
+}
+
+.headings p:nth-child(2){
+	width: 18%;
 }
 
 #legend-sampling-started, #legend-sampling-complete {
@@ -295,9 +295,12 @@ header {
 .sample-info > div {
 	width: 15%;
 }
+.sample-info :nth-child(1){
+	width: 22%;
+}
 
 .sample-info :nth-child(2) {
-	width: 25%;
+	width: 20%;
 }
 
 .importance {
@@ -351,12 +354,6 @@ header {
 	background-size: 100px 50px;
 }
 
-.delete {
-	display: flex;
-	justify-content: flex-end;
-	width: 100%;
-}
-
 .delete button {
 	height: 25px;
 	margin-top: 2%;
@@ -364,29 +361,80 @@ header {
 
 /*sample-info page*/
 
-.update-wrapper {
+.sample-info-name {
+	font-size: 18px;
+	text-align: center;
+}
+
+#sample-actions {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.update-sample div {
-	width: 11%;
+.sample-action {
+	align-content: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 400px;
+	width: 33%;
+}
+
+.sample-action:nth-of-type(2) {
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+}
+
+.action-title {
+	align-self: flex-start;
+	background-color: #541bda;
+	border-radius: 25px;
+	color: white;
+	font-size: 18px;
+	margin: 30px 0;
+	padding: 10px;
+	text-align: center;
+	width: 200px;
+}
+
+.update-sample {
+	width: 80%;
+}
+
+.warning {
+	color: #da1b61;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 100%;
 }
 
 .clean {
-	color: #61ddff;
+	color: rgb(82, 170, 221);
 }
 
 .sample {
-	color: #61ffc2;
+	color: rgb(126, 185, 125);
+}
+
+.form-section {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.form-section__titles {
+	width: 25%;
+}
+
+.form-section__process {
+	width: 40%;
 }
 
 .assign-extraction {
 	align-items: center;
-	background-color: gray;
 	display: flex;
 	font-size: 18px;
 	font-weight: 800;
+	justify-content: center;
 	width: 100%;
 }
 
@@ -429,6 +477,21 @@ header {
 
 	.update-sample div {
 		width: 100%;
+	}
+
+	.sample-action {
+		width: 100%;
+	}
+
+	.sample-action:nth-of-type(2) {
+		border-left: none;
+		border-right: none;
+		border-top: 2px solid black;
+		border-bottom: 2px solid black;
+	}
+
+	.sample-action:nth-of-type(2), .sample-action:nth-of-type(3) {
+		height: 200px;
 	}
 }
 
