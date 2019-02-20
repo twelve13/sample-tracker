@@ -2,8 +2,35 @@
 <div class="sample-info-name">{{vm.sample.name}}</div>
 <div id="sample-actions">
 <div class="sample-action">
-	<div class="action-title">Edit Sample</div>
+	<div class="action-title">Update Sample</div>
 	<form class="update-sample" ng-submit="vm.update()">
+		<div class="form-section">
+			<div>
+				<div class="clean">
+					<input id="checkbox__cleaned" type="checkbox" ng-model="vm.sample.cleaned" value="vm.sample.cleaned">
+					<label for="checkbox__cleaned"><div></div>Cleaned</label>
+				</div>
+			</div>
+			<div>
+				<div class="sample">
+					<input id="checkbox__sampled" type="checkbox" ng-model="vm.sample.sampled" value="vm.sample.sampled">
+					<label for="checkbox__sampled"><div></div>Sampled</label>
+				</div>
+			</div>
+		</div>
+		<div><button type="submit">Update</button></div>
+	</form>
+</div>
+<div class="sample-action">
+	<div class="action-title">Assign To Extraction</div>
+	<form class="assign-extraction" ng-submit="vm.addtoext()">
+		<select ng-model="vm.move" ng-options="extraction.name for extraction in vm.extractions"></select>
+		<div><button type="submit" ng-click="vm.destroy()">Submit</button></div>
+	</form>
+</div>
+<div class="sample-action">
+	<div class="action-title">Edit Info</div>
+		<form class="update-sample" ng-submit="vm.update()">
 		<div class="form-section">
 			<div class="form-section__titles">
 				<div>Sample</div>
@@ -22,25 +49,10 @@
 				<div>Mito<input type="checkbox" ng-model="vm.sample.mito" value="vm.sample.mito"></div>
 				<div>Priority<input type="checkbox" ng-model="vm.sample.priority" value="vm.sample.priority"></div>
 			</div>
-			<div>
-				<div class="clean">Cleaned<input type="checkbox" ng-model="vm.sample.cleaned" value="vm.sample.cleaned"></div>
-				<div class="sample">Sampled<input type="checkbox" ng-model="vm.sample.sampled" value="vm.sample.sampled"></div>
-			</div>
 		</div>
 		<div><button type="submit">Update</button></div>
 	</form>
-</div>
-<div class="sample-action">
-	<div class="action-title">Assign To Extraction</div>
-	<form class="assign-extraction" ng-submit="vm.addtoext()">
-		<select ng-model="vm.move" ng-options="extraction.name for extraction in vm.extractions"></select>
-		<div><button type="submit" ng-click="vm.destroy()">Update</button></div>
-	</form>
-</div>
-<div class="sample-action">
-	<div class="action-title">Delete Sample</div>
-	<div class="warning">This action is irreversible</div>
-	<button ng-click="vm.destroy()">Delete Sample</button>
+	<button class="button__delete" ng-click="vm.destroy()">Delete Sample</button>
 </div>
 
 </div>

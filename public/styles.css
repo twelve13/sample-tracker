@@ -250,7 +250,7 @@ header {
 }
 
 #legend-sampling-started {
-	background: url(https://www.freeiconspng.com/uploads/water-drop-icon-symbol-20.png);
+	background: url(droplet-blue.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -333,7 +333,7 @@ header {
 }
 
 .cleaned {
-	border-color: rgb(82, 170, 221);
+	border-color: #69c2da;
 }
 
 .sampled {
@@ -341,7 +341,7 @@ header {
 }
 
 .cleaned .sample-status {
-	background: url(https://www.freeiconspng.com/uploads/water-drop-icon-symbol-20.png);
+	background: url(droplet-blue.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 30px 40px;
@@ -362,7 +362,7 @@ header {
 /*sample-info page*/
 
 .sample-info-name {
-	font-size: 18px;
+	font-size: 24px;
 	text-align: center;
 }
 
@@ -397,28 +397,52 @@ header {
 	width: 200px;
 }
 
+.clean label, .sample label {
+	color: #b5bec0;
+}
+
+#checkbox__cleaned, #checkbox__sampled {
+	display: none;
+}
+
+.clean label div {
+	background-image: url(droplet-gray.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100px;
+	width: 100px;
+}
+
+.sample label div {
+	background-image: url(sampled-gray.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 100px;
+	width: 100px;
+}
+
+#checkbox__cleaned:checked ~ label div {
+	background-image: url(droplet-blue.png);
+}
+
+#checkbox__cleaned:checked ~ label {
+	color: #69c2da;
+}
+
+#checkbox__sampled:checked ~ label div {
+	background-image: url(sampled-green.png);
+}
+
+#checkbox__sampled:checked ~ label {
+	color: #53c721;
+}
+
 .update-sample {
 	width: 80%;
 }
 
-.warning {
-	color: #da1b61;
-	margin-bottom: 10px;
-	text-align: center;
-	width: 100%;
-}
-
-.clean {
-	color: rgb(82, 170, 221);
-}
-
-.sample {
-	color: rgb(126, 185, 125);
-}
-
 .form-section {
 	display: flex;
-	margin-bottom: 20px;
 }
 
 .form-section__titles {
@@ -440,6 +464,10 @@ header {
 
 .assign-extraction * {
 	margin: 1%;
+}
+
+.button__delete {
+	background-color: #da1b61;
 }
 
 @media (max-width: 610px){
