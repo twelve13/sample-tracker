@@ -48,7 +48,7 @@ header {
 	cursor: pointer;
 	margin: 10px;
 	padding: 10px;
-	width: 200px;
+	width: 180px;
 }
 
 .new-form {
@@ -257,10 +257,10 @@ header {
 }
 
 #legend-sampling-complete {
-	background: url(test-tube.jpg);
+	background: url(sampled-purple.png);
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 30px 20px;	
+	background-size: 20px 20px;	
 }
 
 .sample-entry, .headings {
@@ -333,11 +333,11 @@ header {
 }
 
 .cleaned {
-	border-color: #69c2da;
+	border-color: #39cdd5;
 }
 
 .sampled {
-	border-color: rgb(126, 185, 125);
+	border-color: #541bda;;
 }
 
 .cleaned .sample-status {
@@ -348,10 +348,10 @@ header {
 }
 
 .sampled .sample-status {
-	background: url(test-tube.jpg);
+	background: url(sampled-purple.png);
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 100px 50px;
+	background-size: 50px 50px;
 }
 
 .delete button {
@@ -360,6 +360,10 @@ header {
 }
 
 /*sample-info page*/
+
+.sample {
+	text-align: center;
+}
 
 .sample-info-name {
 	font-size: 24px;
@@ -391,7 +395,7 @@ header {
 	border-radius: 25px;
 	color: white;
 	font-size: 18px;
-	margin: 30px 0;
+	margin: 35px 0;
 	padding: 10px;
 	text-align: center;
 	width: 200px;
@@ -426,15 +430,15 @@ header {
 }
 
 #checkbox__cleaned:checked ~ label {
-	color: #69c2da;
+	color: #47c8d1;
 }
 
 #checkbox__sampled:checked ~ label div {
-	background-image: url(sampled-green.png);
+	background-image: url(sampled-purple.png);
 }
 
 #checkbox__sampled:checked ~ label {
-	color: #53c721;
+	color: #541bda;
 }
 
 .update-sample {
@@ -443,6 +447,7 @@ header {
 
 .form-section {
 	display: flex;
+	justify-content: center;
 }
 
 .form-section__titles {
@@ -451,6 +456,14 @@ header {
 
 .form-section__process {
 	width: 40%;
+}
+
+.button-section {
+	text-align: right;
+}
+
+.button-section.sample{
+	margin-top: 45px;
 }
 
 .assign-extraction {
@@ -466,8 +479,15 @@ header {
 	margin: 1%;
 }
 
+.delete-section {
+	margin-top: 40px;
+	text-align: right;
+	width: 100%;
+}
+
 .button__delete {
 	background-color: #da1b61;
+	margin-right: 40px;
 }
 
 @media (max-width: 610px){
